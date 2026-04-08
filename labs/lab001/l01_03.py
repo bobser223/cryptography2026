@@ -28,7 +28,7 @@ def count_CI_from_text(text: str) -> float:
 
 def check_possible_key_length(text: str, etalon_CI: float) -> list[int]:
     candidates = []
-    for key_len in range(5, 20):
+    for key_len in range(1, len(text)):
 
         subsequences = [text[start::key_len] for start in range(key_len)]
         CIs = [count_CI_from_text(sub) for sub in subsequences if len(sub) > 1]
@@ -165,6 +165,7 @@ def t03():
         textB_cleaned = f.read()
 
     error_count = 0
+    print(decrypted[:100])
     for (ch1, ch2) in zip(textB_cleaned, decrypted):
         if ch1 != ch2:
             error_count += 1

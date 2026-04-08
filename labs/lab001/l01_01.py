@@ -24,7 +24,7 @@ def get_chars_frequency(text: str) -> dict:
 
 def get_chars_relative_frequency(text: str):
     frequency = get_chars_frequency(text)
-    total = sum(freq.values())
+    total = sum(frequency.values())
     for (key, value) in frequency.items():
         frequency[key] = value / total
 
